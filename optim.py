@@ -30,9 +30,9 @@ def adjust(df):
             df.loc[rand_index, col] -= minusamt
 
     # Update the 28th row
-    df.loc[rowsize, :] = df.loc[0:(rowsize-1), :].sum()  # calculate the sum over the first 27 rows only
+    df.loc[rowsize, :] = df.loc[0:(rowsize-1), :].sum()  # calculate the sum over the first rows less the total row at the bottom
 
-# Iterate until all columns in the 27th row are within 21 and 23, or max iterations reached
+# Iterate until all columns in the sum row are within max/min limits, or max iterations reached
 while not df.loc[rowsize, :].between(minthresh, maxthresh).all() and current_iter < max_iter:
     adjust(df)
     print(f"Iteration: {current_iter}")
