@@ -29,7 +29,7 @@ def adjust(df):
                 rand_index = np.random.randint(0, rowsize)  # Select a new random cell if the condition is not satisfied
             df.loc[rand_index, col] -= minusamt
 
-    # Update the 28th row
+    # Update the final sum row
     df.loc[rowsize, :] = df.loc[0:(rowsize-1), :].sum()  # calculate the sum over the first rows less the total row at the bottom
 
 # Iterate until all columns in the sum row are within max/min limits, or max iterations reached
